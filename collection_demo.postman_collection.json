@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "afe2b294-0c41-4d02-bdf9-737272fce7ce",
+		"name": "collection_demo",
+		"description": "create a collection ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "weather_shenyang",
+			"description": "check the weather in shenyang",
+			"item": [
+				{
+					"name": "check_weather_in_shenyang",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c1d245e8-9c5b-406d-86ee-98c670fb11ec",
+								"type": "text/javascript",
+								"exec": [
+									"pm.environment.set(\"city\", \"沈阳\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c151b66e-b294-40aa-9388-3a5dc742b502",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{request}}?city={{city}}",
+							"host": [
+								"{{request}}"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "{{city}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "weather_beijing",
+			"description": "check the weather in beijing",
+			"item": [
+				{
+					"name": "check_weather_in_bejing",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d4372c99-6a90-4511-b0cc-c31362b2b3ff",
+								"type": "text/javascript",
+								"exec": [
+									"pm.environment.set(\"city\", \"北京\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "cefdcaf2-801d-4584-bf72-3e798112d9e8",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{request}}?city={{city}}",
+							"host": [
+								"{{request}}"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "{{city}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5e102822-a730-4836-9170-f7c3f01f3fa4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a00f41a6-3388-4ed9-bb9a-0023b0cbca9b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "999703c6-1919-4a52-aaed-9cd2230701fb",
+			"key": "request",
+			"value": "http://notify.mse.sogou.com/weather",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
